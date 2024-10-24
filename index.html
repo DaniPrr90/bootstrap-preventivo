@@ -65,7 +65,7 @@
 
     <!-- inizio form della pagina -->
     <form>
-        <div class="mb-3">
+        <div class="mb-3 pt-4">
           <label for="Name" class="form-label">Nome</label>
           <input type="text" class="form-control" id="Name" aria-describedby="Nome">
         </div>
@@ -87,9 +87,20 @@
             <option value="3">Project Analysis</option>
           </select>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 pt-4">
             <label for="Textarea" class="form-label">Textarea con Bootstrap 5</label>
             <textarea class="form-control" id="Textarea" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="code" class="form-label">Codice promozionale (opzionale)</label>
+            <input type="text" class="form-control" id="code" aria-describedby="code">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="privacyPolicy">
+            <label class="form-check-label" for="privacyPolicy">Accetto la privacy Policy</label>
+          </div>
+          <div class="col-6 ms-5 pt-4">
+            <button class="btn btn-primary" type="submit">Calcola preventivo</button>
           </div>
         <!-- form selection tipo di lavoro -->
       </form>
@@ -99,7 +110,9 @@
 </div>
 </main>
 </body>
-
+<footer>
+    <span class=" my-4 d-block p-2 text-bg-dark text-center">@ 2024 - Tutti i diritti riservati</span>
+</footer>
 <!-- inserimento footer -->
 
 </html>
