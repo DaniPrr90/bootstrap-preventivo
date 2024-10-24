@@ -55,17 +55,49 @@
 
 <body>
     <!-- inserimento leyout della pagina -->
+     <!-- inserimento del main -->
+      <main>
+        <div class="container">
+              <!-- titolo e sottotitolo -->
 <h1>Richiesta Preventivo</h1>
 <h2>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</h2>
     <!-- titolo e sottotitolo -->
 
     <!-- inizio form della pagina -->
+    <form>
+        <div class="mb-3">
+          <label for="Name" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="Name" aria-describedby="Nome">
+        </div>
+        <div class="mb-3">
+            <label for="firstName" class="form-label">Cognome</label>
+            <input type="text" class="form-control" id="firstName" aria-describedby="Cognome">
+          </div>
+        <div class="mb-3">
+            <label for="inserisciEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inserisciEmail" aria-describedby="email">
+          </div>
+        <!-- form selection tipo di lavoro -->
+        <div>
+            <div class="pb-2">Tipo di Lavoro</div>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Seleziona il tipo di lavoro</option>
+            <option value="1">Backed Development,</option>
+            <option value="2">Frontend Development,</option>
+            <option value="3">Project Analysis</option>
+          </select>
+        </div>
+        <div class="mb-3">
+            <label for="Textarea" class="form-label">Textarea con Bootstrap 5</label>
+            <textarea class="form-control" id="Textarea" rows="3"></textarea>
+          </div>
+        <!-- form selection tipo di lavoro -->
+      </form>
 
 
 
-
-
-
+</div>
+</main>
 </body>
 
 <!-- inserimento footer -->
