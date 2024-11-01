@@ -5,12 +5,12 @@ console.log("sono nella console")
 
 /*---------Variabili di html---------*/
 const myForm = document.getElementById ("myform");
-const Name = document.getElementById ("Name");
+const name = document.getElementById ("Name");
 const firstname = document.getElementById ("firstName");
-const Email = document.getElementById ("insertEmail");
+const email = document.getElementById ("insertEmail");
 const jobType = document.getElementById ("job");
 const textArea = document.getElementById ("Textarea");
-const CodePromo = document.getElementById ("code");
+const codePromo = document.getElementById ("code");
 const privacy = document.getElementById ("privacyPolicy");
 
 
