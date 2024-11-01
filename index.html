@@ -67,7 +67,7 @@
                     <!-- titolo e sottotitolo -->
 
                     <!-- inizio form della pagina -->
-                    <form>
+                    <form id="myform">
                         <div class="mb-3 pt-4">
                             <label for="Name" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="Name" aria-describedby="Nome">
@@ -77,12 +77,12 @@
                             <input type="text" class="form-control" id="firstName" aria-describedby="Cognome">
                         </div>
                         <div class="mb-3">
-                            <label for="inserisciEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="inserisciEmail" aria-describedby="email">
+                            <label for="insertEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="insertEmail" aria-describedby="email">
                         </div>
                         <!-- form selection tipo di lavoro -->
                         <div>
-                            <div class="pb-2">Tipo di Lavoro</div>
+                            <div id="job" class="pb-2">Tipo di Lavoro</div>
                             <select class="form-select" aria-label="Default select example">
                                 <option selected>Seleziona il tipo di lavoro</option>
                                 <option value="1">Backed Development,</option>
