@@ -61,30 +61,30 @@
         <div class="container mt-4">
             <!-- titolo e sottotitolo -->
             <div class="row">
-                <div class="col-9">
+                <div class="col-12 col-lg-9 ">
                     <h1>Richiesta Preventivo</h1>
                     <span>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</span>
                     <!-- titolo e sottotitolo -->
 
                     <!-- inizio form della pagina -->
-                    <form id="myform">
+                    <form id="formPreventivo">
                         <div class="mb-3 pt-4">
-                            <label for="Name" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="Name" aria-describedby="Nome">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="Nome">
                         </div>
                         <div class="mb-3">
                             <label for="firstName" class="form-label">Cognome</label>
                             <input type="text" class="form-control" id="firstName" aria-describedby="Cognome">
                         </div>
                         <div class="mb-3">
-                            <label for="insertEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="insertEmail" aria-describedby="email">
+                            <label for="mail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="mail" aria-describedby="email">
                         </div>
                         <!-- form selection tipo di lavoro -->
                         <div>
-                            <div id="job" class="pb-2">Tipo di Lavoro</div>
+                            <div id="jobType" class="pb-2">Tipo di Lavoro</div>
                             <select class="form-select" aria-label="Default select example">
-                                <option selected>Seleziona il tipo di lavoro</option>
+                                <option selected>Seleziona il tipo di lavoro</option> 
                                 <option value="1">Backed Development,</option>
                                 <option value="2">Frontend Development,</option>
                                 <option value="3">Project Analysis</option>
@@ -92,12 +92,12 @@
                         </div>
 
                         <div class="mb-3 pt-4">
-                            <label for="Textarea" class="form-label">Textarea con Bootstrap 5</label>
-                            <textarea class="form-control" id="Textarea" rows="3"></textarea>
+                            <label for="areaMessage" class="form-label">Textarea con Bootstrap 5</label>
+                            <textarea class="form-control" id="areaMessage" rows="3"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="code" class="form-label">Codice promozionale (opzionale)</label>
-                            <input type="text" class="form-control" id="code" aria-describedby="code">
+                            <label for="codePromo" class="form-label">Codice promozionale (opzionale)</label>
+                            <input type="text" class="form-control" id="codePromo" aria-describedby="code">
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="privacyPolicy">
@@ -110,9 +110,9 @@
                     </form>
                 </div>
                     <!-- inserisento cards -->
-                <div class="col">
+                <div class="col col-lg-3">
                     <div class="d-flex">
-                        <div class="card mx-auto"  style="max-width: 300px;">
+                        <div class="card mx-auto mt-5 mt-lg-0"  style="max-width: 300px;">
                             <img src="https://www.traakit.co.uk/wp-content/uploads/2015/11/placeholdit.gif"
                                 class="card-img-top">
                             <ul class="list-group list-group-flush">
