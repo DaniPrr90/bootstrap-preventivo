@@ -1,99 +1,55 @@
+
 /*---------Variabili di html---------*/
 const formPreventivo = document.getElementById("formPreventivo");
 
-/**************************** */
-
 /*--------Definisco una variabile con i servizi per la lezione---------*/
-
 const backendDevelopment = 20.50;
 const frontendDevelopment = 15.30;
-const projectAnalysis = 33.60
+const projectAnalysis = 33.60;
 
 /* Definisco i codici sconto e il valore dello sconto da applicare */
 const discountPrice = 25;
 const discountCodes = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
 
 /* Definisco il numero di ore totali per un lavoro */
-
 const hourJobs = 10;
 
-/* ------------inserimento condizionali------------ 
-
-● se la commissione riguarda lo sviluppo backend il prezzo orario è di 20.50€/l’ora
-*/
-
-formPreventivo.addEventListener("submit", function (event)){
-
+/* ------------Gestione del form------------ */
+formPreventivo.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    //Leggo i valori dal HTML
-    const jobType = document.getElementById("jobType");
-    const areaMessage = document.getElementById("areaMessage");
+    // Leggo i valori dal HTML
+    const jobType = parseInt(document.getElementById("jobType"));
     const codePromo = document.getElementById("codePromo");
-    const privacyPolicy = document.getElementById("privacyPolicy");
-    const name = document.getElementById("name");
-    const firstName = document.getElementById("firstName");
-    const mail = document.getElementById("mail");
+    const areaMessage = document.getElementById("areaMessage");
 
+    // Determino il prezzo base per la tipologia di servizio scelto
+    let servicePrice;
+    if (jobType === 1) {
+        servicePrice = backendDevelopment;
+    } else if (jobType === 2) {
+        servicePrice = frontendDevelopment;
+    } else if (jobType === 3) {
+        servicePrice = projectAnalysis;
+    } else {
+        areaMessage.innerText = "Seleziona un tipo di lavoro valido.";
+        return;
+    }
 
-    // Determino la tipologia di jobType
-    // Calcolo il totale in base al servicePrice * totale ore (sempre 10)
-    let totalPrice;
-    if (jobType == 1 ){
-        totalPrice = backendDevelopment * 10
+    // Calcolo il prezzo totale senza sconto
+    let totalPrice = servicePrice * hourJobs;
+
+    // Controllo se il codice sconto è valido e applico lo sconto
+    if (discountCodes.includes(codePromo)) {
+        totalPrice -= totalPrice * (discountPrice / 100);
+        areaMessage.innerText = `Codice di sconto valido. Prezzo finale: €${totalPrice.toFixed(2)}`;
+    } else if (codePromo) {
+        areaMessage.innerText = `Codice di sconto non valido. Prezzo finale: €${totalPrice.toFixed(2)}`;
+    } else {
+        areaMessage.innerText = `Prezzo finale: €${totalPrice.toFixed(2)}`;
         console.log(totalPrice);
     }
-    if(jobType == 2){
-        totalPrice = frontendDevelopment * 10
-    }
-    if(jobType == 3){
-        totalPrice = projectAnalysis * 10
-    }
-
-// codePromo = 'SCONTO'
-if (codePromo == "YHDNU32"){
-
-}
-/* verifico se il codice sconto esiste nell'array e lo applico allo sconto */
-
-for(let i = 0; i < discountCodes.length; i++ ){
-totalPrice = backendDevelopment - (totalPrice * (discountPrice) / 100);
-totalPrice = frontendDevelopment - (totalPrice * (discountPrice) / 100);
-totalPrice = projectAnalysis -(totalPrice * (discountPrice) / 100);
-
-}
-    // Controllo se è il codice sia valido e applico lo sconto
-    // Se il codice non è valido mostro un messaggio all'utente
-
-
-    
-
-}
-
-
-
-
-
-
-/*----------variabili di sconto-------------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 /*
 Aggiungiamo la componente js di interazione con l’utente.
