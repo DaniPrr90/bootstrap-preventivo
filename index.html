@@ -50,11 +50,11 @@
         </nav>
        
     </section>
-
+    <body>
 </header>
 <!-- inserimento del nav -->
 
-<body>
+
     <!-- inserimento leyout della pagina -->
     <!-- inserimento del main -->
     <main>
@@ -82,8 +82,8 @@
                         </div>
                         <!-- form selection tipo di lavoro -->
                         <div>
-                            <div id="jobType" class="pb-2">Tipo di Lavoro</div>
-                            <select class="form-select" aria-label="Default select example">
+                            <div class="pb-2">Tipo di Lavoro</div>
+                            <select id="jobType" class="form-select" aria-label="Default select example">
                                 <option selected>Seleziona il tipo di lavoro</option> 
                                 <option value="1">Backed Development,</option>
                                 <option value="2">Frontend Development,</option>
@@ -103,12 +103,19 @@
                             <input type="checkbox" class="form-check-input" id="privacyPolicy">
                             <label class="form-check-label" for="privacyPolicy">Accetto la privacy Policy</label>
                         </div>
-                        <div class="col-6 ms-5 pt-4">
+                        <div class="col ms-5 pt-4 d-flex">
                             <button class="btn btn-primary" type="submit">Calcola preventivo</button>
+                            <h3 id="risultato" class="col ms-5"></h3>
                         </div>
+                        
                         <!-- form selection tipo di lavoro -->
                     </form>
+                    <!--stampo il risultato --> 
+                    
+                    
+                
                 </div>
+               
                     <!-- inserisento cards -->
                 <div class="col col-lg-3">
                     <div class="d-flex">
