@@ -1,4 +1,7 @@
 
+
+
+
 /*---------Variabili di html---------*/
 const formPreventivo = document.getElementById("formPreventivo");
 
@@ -15,40 +18,72 @@ const discountCodes = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
 const hourJobs = 10;
 
 /* ------------Gestione del form------------ */
+
 formPreventivo.addEventListener("submit", function (event) {
     event.preventDefault();
 
     // Leggo i valori dal HTML
-    const jobType = parseInt(document.getElementById("jobType"));
-    const codePromo = document.getElementById("codePromo");
+    const jobType = document.getElementById("jobType");
+    const selectedIndex = jobType.selectedIndex;
+    const jobTypeOption = jobType.options[selectedIndex]
+
+    const codePromo = (document.getElementById("codePromo")).value;
+
     const areaMessage = document.getElementById("areaMessage");
+
+    const risultato = document.getElementById("risultato");
 
     // Determino il prezzo base per la tipologia di servizio scelto
     let servicePrice;
-    if (jobType === 1) {
+    if (jobTypeOption.value == 1) {
         servicePrice = backendDevelopment;
-    } else if (jobType === 2) {
+    } else if (jobTypeOption.value == 2) {
         servicePrice = frontendDevelopment;
-    } else if (jobType === 3) {
+    } else if (jobTypeOption.value == 3) {
         servicePrice = projectAnalysis;
     } else {
-        areaMessage.innerText = "Seleziona un tipo di lavoro valido.";
+        risultato.innerText = "Seleziona un tipo di lavoro valido.";
         return;
     }
 
     // Calcolo il prezzo totale senza sconto
     let totalPrice = servicePrice * hourJobs;
-
+    let sconto = 0;
     // Controllo se il codice sconto è valido e applico lo sconto
-    if (discountCodes.includes(codePromo)) {
-        totalPrice -= totalPrice * (discountPrice / 100);
-        areaMessage.innerText = `Codice di sconto valido. Prezzo finale: €${totalPrice.toFixed(2)}`;
-    } else if (codePromo) {
-        areaMessage.innerText = `Codice di sconto non valido. Prezzo finale: €${totalPrice.toFixed(2)}`;
-    } else {
-        areaMessage.innerText = `Prezzo finale: €${totalPrice.toFixed(2)}`;
-        console.log(totalPrice);
+    for (let cont = 0; cont < discountCodes.length; cont++) {
+        if (discountCodes[cont] == codePromo) {
+            sconto = totalPrice * (discountPrice / 100)
+        }
     }
+
+    // controllo se è stato applicato uno sconto 
+    if(sconto != 0){
+        totalPrice = totalPrice - sconto
+        risultato.innerText = `Codice di sconto valido. Prezzo finale: €${totalPrice.toFixed(2)}`;
+    }
+    // non ho diritto allo sconto
+    else{
+        // sconto inserito non valido 
+        if(codePromo){
+            risultato.innerText = `Codice di sconto non valido. Prezzo finale: €${totalPrice.toFixed(2)}`;            
+        }
+        // non ho inserito nessun codice di sconto 
+        else{
+            risultato.innerText = `Prezzo finale: €${totalPrice.toFixed(2)}`;   
+        }
+    }
+
+    // if (discountCodes.includes(codePromo)) {
+    //     totalPrice -= totalPrice * (discountPrice / 100);
+    //     areaMessage.innerText = `Codice di sconto valido. Prezzo finale: €${totalPrice.toFixed(2)}`;
+    //     console.log(totalPrice);
+    // } else if (codePromo) {
+    //     areaMessage.innerText = `Codice di sconto non valido. Prezzo finale: €${totalPrice.toFixed(2)}`;
+    //     console.log("codice non valido");
+    // } else {
+    //     areaMessage.innerText = `Prezzo finale: €${totalPrice.toFixed(2)}`;
+    //     console.log("codice non inserito");        
+    // }
 });
 
 /*
